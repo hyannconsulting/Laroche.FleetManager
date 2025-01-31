@@ -1,0 +1,73 @@
+﻿{
+   "CodeGenerationMode": 5,
+   "ContextClassName": "FleetManagerDbContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Entities",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Laroche.FleetManager.Domain",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 2,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Affectations]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Conducteurs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Deplacements]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Entretiens]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Incidents]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LigneDepenses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Vehicules]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}

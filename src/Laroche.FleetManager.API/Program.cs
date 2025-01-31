@@ -1,3 +1,5 @@
+using Laroche.FleetManager.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+var connexionString =
+    builder.Configuration["Database:ConnectionString"]
+        ?? throw new InvalidOperationException("Connection string not found.");
+
+builder.Services.AddDbContextFactory<FleetManagerDbContext>(options =>
+    options.UseSqlServer(connexionString));
 
 var app = builder.Build();
 
