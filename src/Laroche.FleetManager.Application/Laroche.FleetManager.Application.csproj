@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Laroche.FleetManager.Domain\Laroche.FleetManager.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
