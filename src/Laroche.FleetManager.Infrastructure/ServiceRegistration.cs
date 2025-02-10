@@ -1,4 +1,5 @@
 ﻿using Laroche.FleetManager.Application.Interfaces.Repositories;
+using Laroche.FleetManager.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -9,15 +10,7 @@ namespace Laroche.FleetManager.Infrastructure
     {
         public static IServiceCollection AddPersistenceInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-
-            //if (configuration["Database:ConnectionString"] is null)
-            //    throw new ArgumentNullException(nameof(configuration["Database:ConnectionString"]));
-
-            //services.AddDbContext<FleetManagerDbContext>(options =>
-            //    options.UseSqlServer(configuration["Database:ConnectionString"]));
-
-            //services.RegisterRepositories();
-
+            services.RegisterRepositories();
             return services;
         }
 
@@ -34,8 +27,11 @@ namespace Laroche.FleetManager.Infrastructure
                 var implementation = implementations.FirstOrDefault(p => p.GetInterface(item.Name) != null);
 
                 if (implementation is not null)
-                    services.AddTransient(item, implementation);
+                    services.AddScoped(item, implementation);
             }
+
+            services.AddScoped<IDriversRepository, DriversRepository>();
+
         }
     }
 }

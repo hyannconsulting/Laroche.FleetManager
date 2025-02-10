@@ -15,11 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Endpoints\" />
+    <ProjectReference Include="..\Laroche.FleetManager.Application\Laroche.FleetManager.Application.csproj" />
+    <ProjectReference Include="..\Laroche.FleetManager.Infrastructure\Laroche.FleetManager.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Laroche.FleetManager.Infrastructure\Laroche.FleetManager.Infrastructure.csproj" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

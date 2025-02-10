@@ -1,0 +1,1 @@
+https://medium.com/@jaydeepvpatil225/cqrs-and-mediatr-pattern-implementation-using-net-core-6-web-api-47d76da907d7

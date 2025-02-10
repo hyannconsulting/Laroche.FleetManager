@@ -2,6 +2,8 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Security.Principal;
+using Laroche.FleetManager.Domain.BaseObjects;
 using Laroche.FleetManager.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -154,4 +156,27 @@ public partial class FleetManagerDbContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    public async override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        //var entries = ChangeTracker
+        //    .Entries()
+        //    .Where(e => e.Entity is IEntity && (
+        //        e.State == EntityState.Added || e.State == EntityState.Modified));
+
+        var datas = ChangeTracker.Entries<BaseEntity>();
+        foreach (var data in datas)
+        {
+            data.Entity.CreatedBy = WindowsIdentity.GetCurrent().Name;
+            data.Entity.UpdatedBy    = WindowsIdentity.GetCurrent().Name;
+            _ = data.State switch
+            {
+                EntityState.Added => data.Entity.CreatedDate = DateTime.Now,
+                EntityState.Modified => data.Entity.UpdatedDate = DateTime.Now,
+                _ => DateTime.Now
+            };
+        }
+
+        return await base.SaveChangesAsync(cancellationToken);
+    }
 }

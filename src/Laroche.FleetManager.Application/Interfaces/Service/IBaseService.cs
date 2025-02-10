@@ -5,6 +5,7 @@ namespace Laroche.FleetManager.Application.Interfaces.Service
 {
     public interface IBaseService<T> where T : BaseEntity
     {
+        Task<T> AddAsync(T entity);
         /// <summary>
         /// Gets the by identifier.
         /// </summary>
@@ -16,13 +17,13 @@ namespace Laroche.FleetManager.Application.Interfaces.Service
         /// Gets all asynchronous.
         /// </summary>
         /// <returns></returns>
-        Task<List<T>> GetAllAsync();
+        Task<IReadOnlyList<T>> GetAllAsync();
 
         /// <summary>
         /// Gets all asynchronous.
         /// </summary>
         /// <param name="predicat">The predicat.</param>
         /// <returns></returns>
-        Task<List<T>> GetAllAsync(Expression<Func<T, bool>> predicat);
+        Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicat);
     }
 }
